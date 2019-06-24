@@ -35,13 +35,11 @@ for file in scan_files:
 	# Use Output Folder Path for LARGE PDF's
 	#image = convert_from_path(file, output_folder=path, first_page=1, last_page=1, fmt='jpg')
 	time.sleep(1)
-	#image = Image.open(StringIO.StringIO(images))
 	w, h = image[0].size
 	print('[*] Image Width,Height: %s, %s' % (w,h))
 	capture_size_a = ['Report_1', 'Report_2']
 	if any(x in file for x in capture_size_a):
 		print('[!] Adjustment Needed Found - Changing Capture Size')
-		#size = (64, 1080, w-64, h-360)
 		size = (64, 1000, w-64, h-420) # 920, 520
 	elif 'Report_3' in file.upper():
 		print('[!] Adjustment Needed Found - Changing Capture Size: Report_3')
