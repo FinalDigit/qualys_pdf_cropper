@@ -37,11 +37,11 @@ for file in scan_files:
 	time.sleep(1)
 	w, h = image[0].size
 	print('[*] Image Width,Height: %s, %s' % (w,h))
-	capture_size_a = ['Report_1', 'Report_2']
-	if any(x in file for x in capture_size_a):
+	capture_size_a = ['Report_1', 'Report_2'] 
+	if any(x in file for x in capture_size_a): # Used for collection of reports that have the same format
 		print('[!] Adjustment Needed Found - Changing Capture Size')
 		size = (64, 1000, w-64, h-420) # 920, 520
-	elif 'Report_3' in file.upper():
+	elif 'Report_3' in file.upper(): # Override capture with specific report
 		print('[!] Adjustment Needed Found - Changing Capture Size: Report_3')
 		size = (64, 1080, w-64, h-320) # 1080 # h-360
 	else:
